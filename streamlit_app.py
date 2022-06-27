@@ -20,11 +20,10 @@ class VideoProcessor:
         # .recv()的输出将显示在屏幕上
         return av.VideoFrame.from_ndarray(img, format="bgr24")
 
-'''
-webrtc_streamer返回一个上下文对象，因此我们将其分配给ctx变量。
-通过video_processor_factory参数传递给webrtc_streamer()的类对象将被实例化并设置为ctx。
-当视频流不活动时，它不会被设置，所以我们用if子句检查它的存在。
-'''
+
+#webrtc_streamer返回一个上下文对象，因此我们将其分配给ctx变量。
+#通过video_processor_factory参数传递给webrtc_streamer()的类对象将被实例化并设置为ctx。
+#当视频流不活动时，它不会被设置，所以我们用if子句检查它的存在。
 ctx = webrtc_streamer(key="example", video_processor_factory=VideoProcessor)
 if ctx.video_processor:
     ctx.video_processor.threshold1 = st.slider("Threshold1", min_value=0, max_value=1000, step=1, value=100)
