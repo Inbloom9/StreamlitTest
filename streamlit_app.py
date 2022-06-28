@@ -26,10 +26,12 @@ class VideoProcessor:
 #当视频流不活动时，它不会被设置，所以我们用if子句检查它的存在。
 ctx = webrtc_streamer(
     key="example", 
+    mode=WebRtcMode.SENDRECV,
     video_processor_factory=VideoProcessor,
     rtc_configuration={  # Add this line
         "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
     }
+    async_processing=True,
 )
 if ctx.video_processor:
     ctx.video_processor.threshold1 = st.slider("Threshold1", min_value=0, max_value=1000, step=1, value=100)
