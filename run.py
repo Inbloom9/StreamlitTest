@@ -16,6 +16,7 @@ if captured_image is None:
     st.write("Waiting for capture...")
 else:
     st.write("Got an image from the webcam:")
-    img = recv(captured_image)
-    st.image(img)
+    
+    image = recv(captured_image)
+    st.image(image)
     
