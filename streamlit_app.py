@@ -29,7 +29,7 @@ ctx = webrtc_streamer(
     mode=WebRtcMode.SENDRECV,
     video_processor_factory=VideoProcessor,
     rtc_configuration={  # Add this line
-        "iceServers": [{"urls": ["stun:stun.schlund.de:3478"]}]
+        "iceServers": [{"urls": ["stun:stun2.l.google.com:19302"]}]
     },
     async_processing=True
 )
